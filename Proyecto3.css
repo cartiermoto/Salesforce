@@ -1,0 +1,32 @@
+html{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+    width: 180px;
+    height: 50px;
+    background-color: darkkhaki;
+}
+
+h2{
+    font-weight: bold;
+    font-style: italic;
+}
+
+input{
+    width: 180px;
+    height: 30px;
+}
+
+#cuentaRegresiva{
+    border: 1px;
+    border-color: red;
+    border-style: solid;
+    color: red;
+}
+
+input[type="radio"] {
+    width: 16px; /* Ajusta el ancho del círculo */
+    height: 16px; /* Ajusta la altura del círculo */
+  }
+  
