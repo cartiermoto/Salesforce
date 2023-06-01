@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F4F4F4
+  ;
+}
+
+button {
+  width: 180px;
+  height: 50px;
+  background-color: black;
+  font-weight: 200;
+  color: azure;
+  border-color: azure;
+  border-radius: 5px;
+}
+
+h2 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+input {
+  width: 180px;
+  height: 30px;
+}
+
+#cuentaRegresiva {
+  border: 1px;
+  border-color: red;
+  border-style: solid;
+  color: red;
+}
+
+input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+}
+
+.left-column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 30px;
+}
+
+.right-column {
+    float: left;
+    width: 50%;
+    background-image: url("nubes.png");
+    background-size: 100% auto; /* Ajusta el tamaño de la imagen */
+    margin-left: 20px;
+    box-sizing: border-box;
+   
+  }
+
+  .right-column img{
+      
+      object-fit: cover;
+      width:100%;
+      height:100%;
+    
+  }
+
+
+

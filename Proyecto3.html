@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="Proyecto3.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="comenzarCuentaRegresiva()">
+    <div class="container">
+        <div class="left-column">
+    <h2>Responde a las preguntas lo más rápido que puedas <span id="cuentaRegresiva"></span></h2>
+    <div id="preguntas">
+    <H1>01</H1>
+    <p>¿Qué es Salesforce?</p>
+
+    <label><input type="radio" id="respuesta1_1" value="CRM" name="opcion1">Es un CRM</label><br>
+    <label><input type="radio" id="respuesta1_2" value="ERP" name="opcion1">Es un ERP</label><br>
+    <label><input type="radio" id="respuesta1_3" value="Aplicacion Escritorio" name="opcion1"> Es una aplicacion de
+        Escritorio</label><br>
+    <label><input type="radio" id="respuesta1_4" value="Softphone" name="opcion1"> Es un softphone</label>
+    
+    <H1>02</H1>
+    <p>¿Qué modelo de servicio en la nube maneja Salesforce?</p>
+    <label><input type="radio" id="respuesta2_1" value="IAAS" name="opcion2">IAAS</label><br>
+    <label><input type="radio" id="respuesta2_2" value="SAAS" name="opcion2">SAAS</label><br>
+    <label><input type="radio" id="respuesta2_3" value="PAAS" name="opcion2">PAAS</label><br>
+    <H1>03</H1>
+    <p>¿Cómo se llama el lenguaje de consultas de Salesforce?</p>
+    <label><input type="radio" id="respuesta3_1" value="SOQL" name="opcion3">SOQL</label><br>
+    <label><input type="radio" id="respuesta3_2" value="MYSQL" name="opcion3">MYSQL</label><br>
+    <label><input type="radio" id="respuesta3_3" value="SQL" name="opcion3">SQL</label><br>
+    <label><input type="radio" id="respuesta3_4" value="POSTGRES" name="opcion3">POSTGRES</label><br>
+    <H1>04</H1>
+    <p>¿En qué año se fundo Salesforce?</p>
+    <label><input type="radio" id="respuesta4_1" value="1991" name="opcion4">1991</label><br>
+    <label><input type="radio" id="respuesta4_2" value="1987" name="opcion4">1987</label><br>
+    <label><input type="radio" id="respuesta4_3" value="1999" name="opcion4">1999</label><br>
+    <H1>05</H1>
+    <p>¿Como se llama el CEO de Salesforce?</p>
+    <label><input type="radio" id="respuesta5_1" value="Marc Benioff" name="opcion5">Marc Benioff</label><br>
+    <label><input type="radio" id="respuesta5_2" value="Sundar Pichai" name="opcion5">Sundar Pichai</label><br>
+    <label><input type="radio" id="respuesta5_3" value="Andy Jassy" name="opcion5">Andy Jassy</label><br>
+    <br><br>
+    <button onclick="finalizado()">Terminé!</button>
+    <br><br>
+    <button onclick="volveraIntentar()">Volver a Intentar</button>
+    <br>
+    <br>
+</div>
+</div>
+
+<div class="right-column">
+    <img src="nubes1.png" alt="Nubes">
+</div>
+
+</div>
+
+
+      
+    
+    
+    
+
+
+    <script>
+        let tiempoTerminado;
+        let intervaloDeTiempo;
+
+        function comenzarCuentaRegresiva() {
+            tiempoTerminado = setTimeout(tiempoCumplido, 60000);
+            intervaloDeTiempo = setInterval(tictac, 1000);
+            document.getElementById("cuentaRegresiva").textContent = 60;
+        }
+
+        function tictac() {
+            let tiempo = document.getElementById("cuentaRegresiva").textContent;
+            document.getElementById("cuentaRegresiva").textContent = tiempo - 1;
+        }
+
+        function tiempoCumplido() {
+            clearInterval(intervaloDeTiempo);
+            document.getElementById("cuentaRegresiva").textContent = 0;
+            document.getElementById("audiofinal").play();
+            alert("Lo siento: Se acabó el tiempo. Inténtalo nuevamente");
+        }
+
+        function finalizado() {
+            clearTimeout(tiempoTerminado);
+            clearInterval(intervaloDeTiempo);
+
+            let fecha = new Date();
+            let respuesta1 = document.querySelector('input[name="opcion1"]:checked').parentNode.textContent.trim();
+            let respuesta2 = document.querySelector('input[name="opcion2"]:checked').parentNode.textContent.trim();
+            let respuesta3 = document.querySelector('input[name="opcion3"]:checked').parentNode.textContent.trim();
+            let respuesta4 = document.querySelector('input[name="opcion4"]:checked').parentNode.textContent.trim();
+            let respuesta5 = document.querySelector('input[name="opcion5"]:checked').parentNode.textContent.trim();
+
+            let puntuacion = 0;
+
+            if (respuesta1 === "Es un CRM") {
+                puntuacion += 1;
+            }
+            if (respuesta2 === "SAAS") {
+                puntuacion += 1;
+            }
+            if (respuesta3 === "SOQL") {
+                puntuacion += 1;
+            }
+            if (respuesta4 === "1999") {
+                puntuacion += 1;
+            }
+            if (respuesta5 === "Marc Benioff") {
+                puntuacion += 1;
+            }
+
+            let mensaje = fecha.toLocaleDateString("es-Es") + "\n" +
+                "1. " + respuesta1 + "\n" +
+                "2. " + respuesta2 + "\n" +
+                "3. " + respuesta3 + "\n" +
+                "4. " + respuesta4 + "\n" +
+                "5. " + respuesta5 + "\n" +
+                "Tu Puntuación es: " + puntuacion;
+
+            alert(mensaje);
+        }
+
+
+
+
+        function volveraIntentar() {
+            location.reload();
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
